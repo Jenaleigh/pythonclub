@@ -11,4 +11,12 @@ def index (request):
 def getMeeting(request):
     type_list=Meeting.objects.all()
     return render(request, 'pythonclubapp/meeting.html',{'type_list': type_list})
-    
+
+def getResourceType(request):
+    type_list=ResourceType.objects.all()
+    return render(request, 'pythonclubapp/resourcetype.html', {'type_list': type_list})
+
+def getResource(request):
+    type_list=Resource.objects.all()
+    return render(request, 'pythonclubapp/resource.html', {'type_list': type_list})
+
