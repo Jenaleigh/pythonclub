@@ -18,7 +18,7 @@ class Meeting(models.Model):
 
 class MeetingMinutes(models.Model):
     meetingID=models.ForeignKey(Meeting, on_delete=models.CASCADE)
-    attendance=models.ManytoManyField(User)
+    attendance=models.ManyToManyField(User)
     minutes=models.TextField()
 
     def _str_(self):
@@ -40,7 +40,7 @@ class ResourceType(models.Model):
 
 class Resource(models.Model):
     rName=models.CharField(max_length=255)
-    rType=models.ForeignKey(ResourceType, on _delete=models.DO_NOTHING)
+    rType=models.ForeignKey(ResourceType, on_delete=models.DO_NOTHING)
     rURL=models.URLField(null=True, blank=True)
     dateEntered=models.DateField()
     userID=models.ForeignKey(User, on_delete=models.CASCADE)
