@@ -9,11 +9,11 @@ from django.shortcuts import render
 def index (request):
     return render(request, 'pythonclubapp/index.html')
 
-@login_required
 def getMeeting(request):
     type_list=Meeting.objects.all()
     return render(request, 'pythonclubapp/meeting.html',{'type_list': type_list})
 
+@login_required
 def getResourceType(request):
     type_list=ResourceType.objects.all()
     return render(request, 'pythonclubapp/resourcetype.html', {'type_list': type_list})
