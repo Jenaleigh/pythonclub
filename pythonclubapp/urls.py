@@ -6,6 +6,6 @@ urlpatterns = [
     path('getMeeting/', views.getMeeting, name='meetings'),
     path('getResourceType/', views.getResourceType, name='resourcetypes'),
     path('getResource/', views.getResource, name='resources'),
-    path('loginMessage/', views.loginmessage, name='loginmessage'),
-    path('logoutMessage/', views.logoutmessage, name='logoutmessage'),
+    path('loginMessage/', views.loginMessage, name='loginmessage'),
+    path('logoutMessage/', views.logoutMessage, name='logoutmessage'),
 ]
