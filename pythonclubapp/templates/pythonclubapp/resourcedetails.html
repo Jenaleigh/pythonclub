@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ resource.resourcename }}</h2>
+<p>Resource Type: {{ resource.resourcetype }} </p>
+<p>Added by: {{ resource.user }}</p>
+<p>URL: {{ resource.resourceurl }}</p>
+<p>Description: {{ resource.resourcedescription }}</p>
+
+{% endblock %}

@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from .models import Meeting, MeetingMinutes, Resource, ResourceType, Event
 from django.contrib.auth.decorators import login_required
-
-# Create your views here.
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def index (request):
@@ -21,6 +20,13 @@ def getResourceType(request):
 def getResource(request):
     resource_list=Resource.objects.all()
     return render(request, 'pythonclubapp/resource.html', {'resource_list': resource_list})
+
+def resourceDetails(request, id):
+    resource=get_object_or_404(Product, pk=id)
+    context={
+        'resource': resource,
+    }
+    return render(request, 'pythonclubapp/resourcedetails.html', context=context)
 
 def loginMessage(request):
     return render(request, 'pythonclubapp/loginmessage.html')

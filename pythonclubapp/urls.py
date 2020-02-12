@@ -8,4 +8,5 @@ urlpatterns = [
     path('getResource/', views.getResource, name='resources'),
     path('loginMessage/', views.loginMessage, name='loginmessage'),
     path('logoutMessage/', views.logoutMessage, name='logoutmessage'),
+    path('resourcedetails/<int:id>', views.resourceDetails, name='resourcedetails'),
 ]

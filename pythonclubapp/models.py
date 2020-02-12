@@ -1,31 +1,5 @@
 from django.db import models
-
-# Create your models here.
 from django.contrib.auth.models import User
-
-class Meeting(models.Model):
-    meetingTitle=models.CharField(max_length=255)
-    meetingDate=models.DateField()
-    meetingTime=models.CharField(max_length=255)
-    meetingLocation=models.CharField(max_length=255)
-    meetingAgenda=models.TextField()
-
-    def _str_(self):
-        return self.meetingTitle
-
-    class Meta:
-        db_table='meetinginformation'
-
-class MeetingMinutes(models.Model):
-    meetingID=models.ForeignKey(Meeting, on_delete=models.CASCADE)
-    attendance=models.ManyToManyField(User)
-    minutes=models.TextField()
-
-    def _str_(self):
-        return self.meetingID
-
-    class Meta:
-        db_table='minutes'
 
 class ResourceType(models.Model):
     typename=models.CharField(max_length=255)
@@ -53,6 +27,31 @@ class Resource(models.Model):
         db_table='resource'
         verbose_name_plural='resources'
 
+class Meeting(models.Model):
+    meetingTitle=models.CharField(max_length=255)
+    meetingDate=models.DateField()
+    meetingTime=models.CharField(max_length=255)
+    meetingLocation=models.CharField(max_length=255)
+    meetingAgenda=models.TextField()
+
+    def _str_(self):
+        return self.meetingTitle
+
+    class Meta:
+        db_table='meetinginformation'
+
+class MeetingMinutes(models.Model):
+    meetingID=models.ForeignKey(Meeting, on_delete=models.CASCADE)
+    attendance=models.ManyToManyField(User)
+    minutes=models.TextField()
+    meetingMinutesURL=models.URLField(null=True, blank=True)
+
+    def _str_(self):
+        return self.meetingID
+
+    class Meta:
+        db_table='minutes'
+
 class Event(models.Model):
     eTitle=models.CharField(max_length=255)
     eLocation=models.CharField(max_length=255)
@@ -60,6 +59,8 @@ class Event(models.Model):
     eTime=models.TimeField()
     eDescription=models.TextField
     eHostUserID=models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    eURL=models.URLField(null=True, blank=True)
+  
 
     def _str_(self):
         return self.eTitle
