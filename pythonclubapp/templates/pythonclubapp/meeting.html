@@ -6,10 +6,10 @@
      <th>Name</th>
      <th>Description</th>
  </tr>
- {% for t in type_list %}
+ {% for m in meetings_list %}
    <tr>
-       <td>{{ t.typename }}</td>
-       <td>{{ t.typedescription }}</td>
+       <td>{{ m.meetingname }}</td>
+       <td>{{ m.meetingdescription }}</td>
    </tr>
 
  {% endfor %}
