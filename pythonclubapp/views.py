@@ -10,17 +10,17 @@ def index (request):
     return render(request, 'pythonclubapp/index.html')
 
 def getMeeting(request):
-    type_list=Meeting.objects.all()
-    return render(request, 'pythonclubapp/meeting.html',{'type_list': type_list})
+    meetings_list=Meeting.objects.all()
+    return render(request, 'pythonclubapp/meeting.html',{'meetings_list': meetings_list})
 
 @login_required
 def getResourceType(request):
-    type_list=ResourceType.objects.all()
-    return render(request, 'pythonclubapp/resourcetype.html', {'type_list': type_list})
+    resourcetype_list=ResourceType.objects.all()
+    return render(request, 'pythonclubapp/resourcetype.html', {'resourcetype_list': resourcetype_list})
 
 def getResource(request):
-    type_list=Resource.objects.all()
-    return render(request, 'pythonclubapp/resource.html', {'type_list': type_list})
+    resource_list=Resource.objects.all()
+    return render(request, 'pythonclubapp/resource.html', {'resource_list': resource_list})
 
 def loginMessage(request):
     return render(request, 'pythonclubapp/loginmessage.html')
