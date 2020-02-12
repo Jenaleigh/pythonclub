@@ -6,16 +6,12 @@
      <th>Name</th>
      <th>Description</th>
  </tr>
- {% for t in type_list %}
+ {% for r in resourcetype_list %}
    <tr>
-       <td>{{ t.typename }}</td>
-       <td>{{ t.typedescription }}</td>
+       <td>{{ r.resourcetypename }}</td>
+       <td>{{ r.resourcetypedescription }}</td>
    </tr>
-
  {% endfor %}
 
-
 </table>
-
-
 {% endblock %}
