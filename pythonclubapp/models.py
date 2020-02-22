@@ -44,7 +44,7 @@ class MeetingMinutes(models.Model):
     meetingID=models.ForeignKey(Meeting, on_delete=models.CASCADE)
     attendance=models.ManyToManyField(User)
     minutes=models.TextField()
-    meetingMinutesURL=models.URLField(null=True, blank=True)
+    meetingminutesURL=models.URLField(null=True, blank=True)
 
     def _str_(self):
         return self.meetingID

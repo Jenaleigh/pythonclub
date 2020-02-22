@@ -12,6 +12,10 @@ def getMeeting(request):
     meetings_list=Meeting.objects.all()
     return render(request, 'pythonclubapp/meeting.html',{'meetings_list': meetings_list})
 
+def getMeetingMinutes(request):
+    meetingminutes_list=MeetingMinutes.objects.all()
+    return render(request, 'pythonclubapp/meetingminutes.html',{'meetingminutes_list': meetingminutes_list})
+
 @login_required
 def getResourceType(request):
     resourcetype_list=ResourceType.objects.all()
@@ -22,7 +26,7 @@ def getResource(request):
     return render(request, 'pythonclubapp/resource.html', {'resource_list': resource_list})
 
 def resourceDetails(request, id):
-    resource=get_object_or_404(Product, pk=id)
+    resource=get_object_or_404(Resource, pk=id)
     context={
         'resource': resource,
     }
